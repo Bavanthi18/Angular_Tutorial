@@ -1,0 +1,66 @@
+<h1>Welcome to {{hotelName}}</h1>
+
+<div [hidden]="hideRooms">
+  Number of Rooms:
+
+  <div [innerText] = "numberofRooms"></div>
+
+
+</div>
+
+<div *ngIf = "rooms.availableRooms > 0">
+  RoomList
+  <table>
+    <tr>
+      <th>Even/odd</th>
+      <th> roomNumber</th>
+      <th>roomType</th>
+      <th>amenities</th>
+      <th>price</th>
+      <th>checkinTime</th>
+      <th>checkout</th>
+    </tr>
+
+    <tr *ngFor = "let room of roomList; let e=even; let o=odd" >
+     <td>{{ e ? "Even" : "Odd" }}</td>
+     <td>{{ room.roomNumber }}</td>
+     <td>{{ room.roomType }}</td>
+     <td>{{ room.amenities | titlecase }}</td>
+     <td>{{ room.price }}</td>
+     <td>{{ room.checkinTime | date : 'dd/mm/yyy'}}</td>
+
+    </tr>
+
+  </table>
+
+</div>
+
+{{ rooms?.availableRooms ?? "No rooms" }}
+
+<div *ngIf = "selectedRoom">
+  {{ selectedRoom |json }}
+</div>
+
+<div>
+  <button (click)="addRoom()"> Add Room</button>
+</div>
+
+<h1>
+ <!-- {{ getErrors$ | async}}-->
+
+ Number of rooms : {{roomsCount$ | async}}
+</h1>
+
+<div *ngIf = "hideRooms">
+  <hinv-rooms-list [rooms] = "roomlist" [title]="title"
+  (selectedRoom)=""selectedRoom($event)"></hinv-rooms-list>"
+</div>
+
+<button (click)="ToggleEvent()">Toggle</button>
+
+
+<button (click)="editRoom()">Edit room</button>
+
+<button (click)="deleteRoom()">Delete room</button>
+
+
