@@ -11,6 +11,7 @@ import { AppRoutingModule } from "../app/app-routing-module";
 import { InitService } from "../init.service";
 import { APP_INITIALIZER, NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { RouteConfigToken } from "./Services/routeConfig";
 
 function initFactory(initService: InitService){
   return () => initService.init();
@@ -32,9 +33,13 @@ function initFactory(initService: InitService){
   providers: [
     {
     provide: APP_SERVICE_CONFIG,
-    useVAlue: APP_CONFIG,
+    useValue: APP_CONFIG,
 
   },
+  {
+    provide: RouteConfigToken,
+    useValue: { title: 'Home'},
+  }
   {
     provide: RequestInterceptor,
     useValue: HTTP_INTERCEPTORS,
