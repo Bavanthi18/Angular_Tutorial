@@ -1,0 +1,58 @@
+<!--<p> booking works</p>
+
+{{bookingForm.value | json}}
+{{bookingForm.pristine | json}}
+{{bookingForm.dirty | json}}-->
+
+
+<!--<form [formgroup]="bookingForm" (ngSubmit)="addBooking()">
+
+
+
+</form>-->
+
+
+
+
+
+
+<div formGroupName="address">
+
+</div>
+<div>
+  <button mat-raised-button color="primary" type="button" (click)="addGuest()"> Add Guest</button>
+</div>
+
+<div formArrayName="guests">
+  <div *ngFor="let guest of guests.controls; let i= index">
+    <mat-form-field>
+      <input
+      type="text"
+      matInput
+      [formControlName]="i"
+      placeholder= "Guest Name"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+      type="email"
+      matInput
+      [formControlName]="i"
+      placeholder= "email"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+      type="text"
+      matInput
+      [formControlName]="i"
+      placeholder= "mobile number"
+      />
+    </mat-form-field>
+
+  </div>
+</div>
+<div>
+  <button mat-raised-button color="primary"> Book Room</button>
+</div>
+</form>

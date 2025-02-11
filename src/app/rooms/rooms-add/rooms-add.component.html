@@ -10,7 +10,7 @@
   {{ successmessage }}
 </div>
 
-<form (ngsubmit)="AddRoom()">
+<form #roomsForm="ngForm" (ngsubmit)="AddRoom(roomsForm)">
   <div class="form-group">
     <input clss="form-control" type="text" name="roomType" />
   </div>
@@ -25,8 +25,9 @@
     class="form-control"
     type="text"
     name="amenities"
-    [(ngModel)]="room.amenities"
-    placeholder="Amenities"
+    [(ngModel)]="room.roomType"
+    placeholder="Room Type"
+    [ngModelOptions] = "{updateOn: 'blur'}"
     />
 
     <div class="alert alert-danger" *ngIf="roomamanaties.errors?.['minlength']">

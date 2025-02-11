@@ -1,6 +1,6 @@
 import { AfterContenetInit,  Component, ContentChild, Host, OnInit, ViewChild };
-import { EmployeeComponent } from "../../employee/employee.components";
-import { RoomsService } from "../../rooms/Services/rooms.service";
+import { EmployeeComponent } from "../employee/employee.components";
+import { RoomsService } from "../rooms/Services/rooms.service";
 
 @Component({
   selector: 'hinv-container',

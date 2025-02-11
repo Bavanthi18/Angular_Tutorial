@@ -1,6 +1,7 @@
 import { Component, QueryList, SkipSelf, ViewChild, viewChildren } from '@angular/core';
-import { Room } from './rooms';
+import { Room, Roomlist } from './rooms';
 import { RoomsService } from './Services/rooms.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-rooms',
@@ -10,7 +11,7 @@ import { RoomsService } from './Services/rooms.service';
 
 export class RoomsComponent implements onInit {
 
-  hotelName = 'Grand Hotel';
+  hotelName = 'Hilton Hotel';
 
   numberofRooms = 10;
 
@@ -26,7 +27,7 @@ export class RoomsComponent implements onInit {
 
 title = "Rooms List";
 
-roomList: RoomList[] = [
+roomList: Roomlist[] = [
   {
     roomNumber : 1,
     roomType : 'Deuluxe room',
@@ -38,12 +39,13 @@ roomList: RoomList[] = [
   },
 
   {
-    roomNumber : 2,
-    roomType : 'Deuluxe room',
-    amenities : 'Ac, Free Wifi',
-    price : 5000,
-    photos : 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsthotelsmalta.com%2Ffr%2Fapartment-or-hotel-room-which-is-better%2F&psig=AOvVaw2IgC8iCzwvOi1ceh-L-BlE&ust=1738836078186000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOjb66ejrIsDFQAAAAAdAAAAABAE',
-    checkinTime : new Date('11-Nov-2023'),
+    roomNumber: 2,
+    roomType: 'Deuluxe room',
+    amenities: 'Ac, Free Wifi',
+    price: 5000,
+    photos: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsthotelsmalta.com%2Ffr%2Fapartment-or-hotel-room-which-is-better%2F&psig=AOvVaw2IgC8iCzwvOi1ceh-L-BlE&ust=1738836078186000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOjb66ejrIsDFQAAAAAdAAAAABAE',
+    checkinTime: new Date('11-Nov-2023'),
+    checkout: undefined
   }
 ];
 room: any;
